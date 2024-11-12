@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const daysInMonth = monthEnd.getDate(); // Общее количество дней в месяце
 
   // Заполняем пустые ячейки до первого дня месяца
-  // Для того чтобы суббота и воскресенье были в конце, мы корректируем позицию первого дня месяца
   let shiftFirstDay = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // Перемещаем воскресенье в конец
   for (let i = 0; i < shiftFirstDay; i++) {
     const emptyDay = document.createElement("div");
@@ -64,7 +63,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       dayElement.classList.add("highlight");
     }
 
+    // Добавляем обработчик событий
     dayElement.addEventListener("click", () => toggleWorkday(date, dayElement));
+    dayElement.addEventListener("touchstart", () => toggleWorkday(date, dayElement));
 
     calendar.appendChild(dayElement);
   }
