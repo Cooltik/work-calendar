@@ -149,6 +149,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Функция для обновления отображения количества отработанных дней
   function updateWorkdaysCount(count) {
     const workdaysCountEl = document.getElementById("workdays-count");
-    workdaysCountEl.textContent = `Отработано: ${--count} дней`;
+    workdaysCountEl.textContent = `Отработано: ${count} дней`;
   }
   
