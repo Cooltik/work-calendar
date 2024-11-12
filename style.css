@@ -106,7 +106,7 @@ body {
   }
   
   /* Мобильная адаптация */
-  @media (max-width: 600px) {
+  /* @media (max-width: 600px) {
     #calendar-container {
       width: 95%;
       padding: 10px;
@@ -127,10 +127,10 @@ body {
   
     .day:hover {
       background-color: #f1f1f1;
-    }
+    } */
   
     /* Увеличение размера кнопок для мобильных устройств */
-    .day, .highlight {
+    /* .day, .highlight {
       height: 60px;
       font-size: 1.2em;
       display: flex;
@@ -142,9 +142,9 @@ body {
       font-size: 1.2em;
       padding: 5px 0;
     }
-  }
+  } */
   
-  @media (max-width: 400px) {
+  /* @media (max-width: 400px) {
     h1 {
       font-size: 2em;
     }
@@ -157,6 +157,6 @@ body {
       height: 45px;
       font-size: 1em;
     }
-  }
+  } */
   
   
