@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Добавляем обработчик событий для мобильных устройств и ПК
     dayElement.addEventListener("click", () => toggleWorkday(date, dayElement));
-    dayElement.addEventListener("touchstart", () => toggleWorkday(date, dayElement)); // для мобильных устройств
+    dayElement.addEventListener("touchend", () => toggleWorkday(date, dayElement)); // для мобильных устройств
 
     calendar.appendChild(dayElement);
   }
@@ -74,7 +74,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 // Функция для получения отработанных дней
 async function fetchWorkdays() {
   try {
-    console.log("Fetching workdays..."); // Логирование для диагностики
     const response = await fetch(`${API_URL}/workdays/${userId}`);
     const data = await response.json();
     console.log("Fetched workdays:", data); // Проверка на успешную загрузку данных
