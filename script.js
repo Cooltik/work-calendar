@@ -63,9 +63,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       dayElement.classList.add("highlight");
     }
 
-    // Добавляем обработчик событий
+    // Добавляем обработчик событий для мобильных устройств и ПК
     dayElement.addEventListener("click", () => toggleWorkday(date, dayElement));
-    dayElement.addEventListener("touchstart", () => toggleWorkday(date, dayElement));
+    dayElement.addEventListener("touchstart", () => toggleWorkday(date, dayElement)); // для мобильных устройств
 
     calendar.appendChild(dayElement);
   }
@@ -76,6 +76,7 @@ async function fetchWorkdays() {
   try {
     const response = await fetch(`${API_URL}/workdays/${userId}`);
     const data = await response.json();
+    console.log("Fetched workdays:", data); // Проверка на успешную загрузку данных
     return data.map(day => new Date(day.date).toISOString().split("T")[0]);
   } catch (error) {
     console.error("Error fetching workdays:", error);
