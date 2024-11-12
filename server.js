@@ -66,3 +66,11 @@ app.delete('/workday', async (req, res) => {
     }
   });
   
+  
+    // Пример для Express.js (Node.js)
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Разрешает все домены
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
