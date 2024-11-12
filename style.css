@@ -1,162 +1,142 @@
-/* Основные стили */
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f5f5f5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+* {
     margin: 0;
-  }
-  
-  h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #4caf50;
-    font-weight: 500;
-  }
-  
-  /* Стили для блока календаря */
-  #calendar-container {
-    width: 100%;
-    max-width: 500px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    padding: 20px;
+    padding: 0;
     box-sizing: border-box;
   }
   
-  /* Заголовок месяца */
-  #month-name {
-    font-size: 1.8em;
-    padding: 10px;
-    background-color: #4caf50;
-    color: white;
-    font-weight: 500;
-    text-transform: uppercase;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    text-align: center;
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
   }
   
-  /* Заголовки дней недели */
+  .calendar-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+  }
+  
+  #month-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  #month-dropdown {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    font-size: 16px;
+    width: 120px;
+  }
+  
+  #year-display {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
   #weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    background-color: #e0e0e0;
-    padding: 10px 0;
-    font-weight: 500;
-    color: #616161;
-    border-radius: 4px;
-    margin-bottom: 15px;
+    text-align: center;
+    margin-bottom: 10px;
   }
   
   #weekdays div {
-    text-align: center;
-    font-size: 1em;
-    color: #757575;
+    font-weight: bold;
+    color: #555;
   }
   
-  /* Сетка календаря */
   #calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
-    margin-bottom: 20px;
+    margin-top: 10px;
   }
   
-  /* Стиль для каждого дня */
-  .day {
-    height: 60px;
+  .day,
+  .empty {
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
-    font-weight: 500;
-    color: #333;
-    background-color: #fff;
+    font-size: 16px;
+    border-radius: 50%;
     cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
+  }
+  
+  .empty {
+    background-color: transparent;
   }
   
   .day:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Отмеченные (отработанные) дни */
-  .highlight {
-    background-color: #4caf50;
+    background-color: #007bff;
     color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  /* Выходные дни */
-  .weekend {
-    color: #ff5722;
+  .day.highlight {
+    background-color: #28a745;
+    color: white;
   }
   
-  /* Пустые дни */
-  .empty {
-    background-color: transparent;
-    cursor: default;
+  .day.weekend {
+    color: #d9534f;
+  }
+  
+  #workdays-count {
+    font-size: 18px;
+    font-weight: 500;
+    color: #555;
+    margin-top: 20px;
+    text-align: center;
   }
   
   /* Мобильная адаптация */
-  /* @media (max-width: 600px) {
-    #calendar-container {
-      width: 95%;
+  @media (max-width: 768px) {
+    .calendar-container {
+      width: 100%;
       padding: 10px;
     }
-    
-    #month-name {
-      font-size: 1.5em;
+  
+    #month-selector {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    #month-dropdown {
+      width: 100%;
+      margin-bottom: 10px;
     }
   
     #weekdays {
-      font-size: 0.9em;
+      grid-template-columns: repeat(7, 1fr);
+    }
+  
+    #calendar {
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
     }
   
     .day {
-      font-size: 1em;
-      height: 50px;
+      width: 35px;
+      height: 35px;
+      font-size: 14px;
     }
   
-    .day:hover {
-      background-color: #f1f1f1;
-    } */
-  
-    /* Увеличение размера кнопок для мобильных устройств */
-    /* .day, .highlight {
-      height: 60px;
-      font-size: 1.2em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    #workdays-count {
+      font-size: 16px;
     }
-  
-    #weekdays div {
-      font-size: 1.2em;
-      padding: 5px 0;
-    }
-  } */
-  
-  /* @media (max-width: 400px) {
-    h1 {
-      font-size: 2em;
-    }
-  
-    #month-name {
-      font-size: 1.3em;
-    }
-  
-    .day {
-      height: 45px;
-      font-size: 1em;
-    }
-  } */
-  
+  }
   
