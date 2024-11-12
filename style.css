@@ -159,14 +159,4 @@ body {
     }
   }
   
-  .day.highlight {
-    background-color: #4caf50; /* Пример цвета выделения отработанного дня */
-    color: white;
-  }
-  
-  @media (max-width: 768px) {
-    .day {
-      font-size: 14px; /* Уменьшаем размер шрифта для мобильных устройств */
-    }
-  }
   
