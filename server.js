@@ -4,7 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -73,4 +73,12 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
+});
+
+app.listen(PORT, (err) => {
+  if (err) {
+    console.error(`Error starting server: ${err.message}`);
+    process.exit(1); // Завершить процесс с ошибкой
+  }
+  console.log(`Server running on http://localhost:${PORT}`);
 });
